@@ -39,11 +39,11 @@ stages {
     stage('build & push docker image') {
 	    steps {
 		    sh 'cd $WORKSPACE'
-		    sh 'docker build --file Dockerfile --tag lerndevops/samplejavaapp:$BUILD_NUMBER .'
-		    withCredentials([string(credentialsId: 'DOCKER_HUB_PWD', variable: 'DOCKER_HUB_PWD')]) {
-			    sh "docker login -u lerndevops -p ${DOCKER_HUB_PWD}"
+		    sh 'docker build --file Dockerfile --tag gowtham375/samplejavaapp:$BUILD_NUMBER .'
+		    withCredentials([string(credentialsId: 'DOCKER_HUB_LOGIN', variable: 'DOCKER_HUB_LOGIN')]) {
+			    sh "docker login -u gowtham375 -p ${DOCKER_HUB_LOGIN}"
 		    }
-		    sh 'docker push lerndevops/samplejavaapp:$BUILD_NUMBER'
+		    sh 'docker push gowtham375/samplejavaapp:$BUILD_NUMBER'
 	    }
     }
     stage('Deploy-QA') {
