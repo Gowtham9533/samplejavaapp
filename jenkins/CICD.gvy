@@ -5,7 +5,7 @@ pipeline {
 	         steps {
                 // step1 
                 echo 'compiling..'
-		            git url: 'https://github.com/lerndevops/samplejavaapp'
+		            git url: 'https://github.com/Gowtham9533/samplejavaapp'
 		            sh script: '/opt/maven/bin/mvn compile'
            }
         }
@@ -36,7 +36,7 @@ pipeline {
         stage('codecoverage') {
 
            tools {
-              jdk 'java1.8'
+              jdk 'java11'
            }
 	         steps {
                 // step4
