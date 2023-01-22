@@ -4,7 +4,7 @@ stages {
     stage('compile') {
 	    steps { 
 		    echo 'compiling..'
-		    git url: 'https://github.com/lerndevops/samplejavaapp'
+		    git url: 'https://github.com/gowtham375/samplejavaapp'
 		    sh script: '/opt/maven/bin/mvn compile'
 	    }
     }
@@ -48,7 +48,7 @@ stages {
     }
     stage('Deploy-QA') {
 	    steps {
-		    sh 'ansible-playbook --inventory /tmp/myinv deploy/deploy-kube.yml --extra-vars "env=qa build=$BUILD_NUMBER"'
+		    sh 'ansible-playbook --inventory /tmp/inv deploy/deploy-kube.yml --extra-vars "env=qa build=$BUILD_NUMBER"'
 	    }
     }
 }
