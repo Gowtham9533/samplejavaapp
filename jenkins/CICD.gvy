@@ -36,7 +36,7 @@ pipeline {
         stage('codecoverage') {
 
            tools {
-              jdk 'Java11'
+              jdk 'java11'
            }
 	         steps {
                 // step4
